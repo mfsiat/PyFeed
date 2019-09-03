@@ -6,14 +6,14 @@ app = Flask(__name__)
 
 
 # Database setup
-ENV = 'dev'
+ENV = 'prod'
 
 if ENV == 'dev':
     app.debug = True
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123456@localhost/lexus'
 else: 
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = ''
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://xoanwkkxnxarrx:2d0251a34b3b65321f58aab899467393dea49cb5f735a9c3a86bb30e5203ffac@ec2-75-101-133-29.compute-1.amazonaws.com:5432/d4beo1t2e1fp31'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

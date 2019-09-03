@@ -24,3 +24,7 @@ from app import db
 db.create_all()
 exit()
 ```
+* To create the requriements fle 
+```python
+pip freeze > requirements.txt
+```
