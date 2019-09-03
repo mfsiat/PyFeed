@@ -47,8 +47,12 @@ def submit():
         # print(customer, dealer, rating, comments)
         if customer == '' or dealer == '':
             return render_template('index.html', message='Please enter required fields')
-        return render_template('succes.html')
-
+        if db.session.query(Feedback).filter(Feedback.customer == customer).count() == 0:
+            data = Feedback(customer, dealer, rating, comments)
+            db.session.add(data)
+            db.session.commit()
+            return render_template('succes.html')
+        return render_template('index.html', message='You have already submitted feedback')
 # Main function
 if __name__== '__main__':
     app.run()
